@@ -13,7 +13,7 @@ def list_files(bucket):
     contents = []
     try:
         for item in s3_client.list_objects(Bucket=bucket)['Contents']:
-            # print(item)
+            print(item)
             contents.append(item)
     except Exception as e:
         pass
@@ -22,16 +22,16 @@ def list_files(bucket):
 
 def show_image(bucket):
     s3_client = boto3.client('s3')
-    # location = boto3.client('s3').get_bucket_location(Bucket=bucket)['LocationConstraint']
+    location = boto3.client('s3').get_bucket_location(Bucket=bucket)['LocationConstraint']
     public_urls = []
     try:
         for item in s3_client.list_objects(Bucket=bucket)['Contents']:
             presigned_url = s3_client.generate_presigned_url('get_object',
                                                              Params={'Bucket': bucket, 'Key': item['Key']},
                                                              ExpiresIn=100)
-            # print("[DATA] : presigned url = ", presigned_url)
+            print("[DATA] : presigned url = ", presigned_url)
             public_urls.append(presigned_url)
     except Exception as e:
         pass
-    # print("[DATA] : The contents inside show_image = ", public_urls)
+    print("[DATA] : The contents inside show_image = ", public_urls)
     return public_urls

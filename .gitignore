@@ -1,2 +1,17 @@
 # IDE
 .idea
+
+# AWS
+terraform/aws/*
+!/terraform/aws/README.md
+!/terraform/aws/credentials.txt.example
+
+# Terraform
+terraform/.terraform
+terraform/.terraform.lock.hcl
+terraform/.terraform.tfstate.lock.info
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+
+# Python
+/venv-python3_8/

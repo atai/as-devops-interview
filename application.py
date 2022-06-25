@@ -2,27 +2,26 @@ import os
 
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
-
 from s3_functions import list_files, upload_file, show_image
 
-app = Flask(__name__)
+application = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
-BUCKET = "lats-image-data"
+BUCKET = "as-devops-interview-smart-filly"
 
 
-@app.route("/")
+@application.route("/")
 def home():
     contents = list_files(BUCKET)
     return render_template('index.html')
 
 
-@app.route("/pics")
+@application.route("/pics")
 def list():
     contents = show_image(BUCKET)
     return render_template('collection.html', contents=contents)
 
 
-@app.route("/upload", methods=['POST'])
+@application.route("/upload", methods=['POST'])
 def upload():
     if request.method == "POST":
         f = request.files['file']
@@ -32,4 +31,4 @@ def upload():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)

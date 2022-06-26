@@ -4,12 +4,16 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4"
     }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "2.0.0"
+    }
   }
 }
 
 provider "aws" {
-  region                   = var.aws_region
-  shared_credentials_files = var.shared_cred_files
+  region                   = local.region
+  shared_credentials_files = var.shared_cred_file
 }
 
 resource "aws_kms_key" "this" {
@@ -19,7 +23,7 @@ resource "aws_kms_key" "this" {
 }
 
 resource "aws_vpc" "this" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "10.17.0.0/24"
   tags       = var.resource_tags
 }
 

@@ -1,4 +1,14 @@
 # EB
+data "archive_file" "app" {
+  type = "zip"
+  source_dir = "../src"
+  output_path = "./app-v1.zip"
+}
+
+data "aws_iam_role" "this" {
+  name = "aws-elasticbeanstalk-service-role"
+}
+
 resource "aws_s3_object" "default" {
   bucket = aws_s3_bucket.this.id
   key    = "beanstalk/app-v1.zip"
@@ -44,4 +54,10 @@ resource "aws_elastic_beanstalk_environment" "this" {
   }
 
   tags = var.resource_tags
+}
+
+resource "aws_elastic_beanstalk_configuration_template" "this" {
+  name                = local.shared_obj_name
+  application         = aws_elastic_beanstalk_application.this.name
+  solution_stack_name = "64bit Amazon Linux 2 v3.3.15 running Python 3.8"
 }

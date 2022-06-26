@@ -1,17 +1,12 @@
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "eu-west-1"
-}
-
 resource "random_pet" "this" {}
 
 locals {
+  region          = "eu-west-1"
   shared_obj_name = "as-devops-interview-${random_pet.this.id}"
 }
 
-variable "shared_cred_files" {
-  description = "Credential files"
+variable "shared_cred_file" {
+  description = "Credential file"
   type        = list(string)
   default     = ["./aws/credentials.txt"]
 }

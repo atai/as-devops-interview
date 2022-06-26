@@ -15,3 +15,6 @@ terraform/terraform.tfstate.backup
 
 # Python
 /venv-python3_8/
+
+# Project dist
+/terraform/app-v1.zip

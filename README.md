@@ -57,12 +57,13 @@
 10. (+) Ориентировочные затраты можно подсчитать с помощью [AWS Pricing Calculator](https://calculator.aws/). 
 Для созданной инфраструктуры ElasticBeanstalk [calculation](https://calculator.aws/#/estimate?id=b666907f2ec3641e58546b7d94b4f34a983e2aa5).
 11. (+) Трудоемкость сопровождения определяется в рамках [shared responsibility model](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vulnerability-analysis-and-management.html). 
-Ответственность провайдера выше в модели PaaS (EB) чем в случае IaaS(EC2).  
+Ответственность провайдера выше в модели PaaS (EB) чем в случае IaaS(EC2). 
+Это значит, что чем более "управляемый" сервис тем ниже будут трудозатраты на его поддержку (а стоимость сервиса выше).
 Обновление зависимостей:
     1. Для EB можно автоматизировать отслеживание и установку минорных обновлений с помощью инструментов AWS. 
     2. Для ECS варианта нужно периодически обновлять докер образ и самостоятельно следить за устареванием и уязвимостями библиотек. 
     Можно сканировать Docker-Registry на предмет устаревших/уязвимых библиотек.
-12. (+) Ограничения могут быть обусловлены облачным сервисом или ограничениями используемого программного обеспечения. 
+13. (+) Ограничения могут быть обусловлены облачным сервисом или ограничениями используемого программного обеспечения. 
 Ограничения платформы описаны в документации:
     1. Для EB [link](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-lifecycle.html), [link](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html).
     2. Для ECS [link](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html).

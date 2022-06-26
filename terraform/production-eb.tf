@@ -13,12 +13,12 @@ resource "aws_s3_object" "default" {
   bucket = aws_s3_bucket.this.id
   key    = "beanstalk/app-v1.zip"
   source = "app-v1.zip"
-  tags   = var.resource_tags
+  tags   = local.resource_tags
 }
 
 resource "aws_elastic_beanstalk_application" "this" {
   name = local.shared_obj_name
-  tags = var.resource_tags
+  tags = local.resource_tags
 }
 
 resource "aws_elastic_beanstalk_application_version" "this" {
@@ -53,7 +53,7 @@ resource "aws_elastic_beanstalk_environment" "this" {
     value     = "application"
   }
 
-  tags = var.resource_tags
+  tags = local.resource_tags
 }
 
 resource "aws_elastic_beanstalk_configuration_template" "this" {

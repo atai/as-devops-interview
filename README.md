@@ -56,7 +56,7 @@
 9. (+) Время на реализацию 2 часа.
 10. (+) Ориентировочные затраты можно подсчитать с помощью [AWS Pricing Calculator](https://calculator.aws/). 
 Для созданной инфраструктуры ElasticBeanstalk [calculation](https://calculator.aws/#/estimate?id=b666907f2ec3641e58546b7d94b4f34a983e2aa5).
-11. (+) Трудоемкость сопровождения определяется в рамках [shared responsibility model](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vulnerability-analysis-and-management.html). 
+11. (+) Трудоемкость(сложность) сопровождения определяется в рамках [shared responsibility model](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vulnerability-analysis-and-management.html). 
 Ответственность провайдера выше в модели PaaS (EB) чем в случае IaaS(EC2). 
 Это значит, что чем более "управляемый" сервис тем ниже будут трудозатраты на его поддержку (а стоимость сервиса выше).
 Обновление зависимостей:
